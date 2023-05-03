@@ -1,0 +1,38 @@
+
+<div id="divPocSummary"
+    role="main"
+    class="content"
+    *ngIf="!isUserLoggedIn()"
+>
+	<h2>POC Summary</h2>
+	This is a "static" POC, of an Angular 15 based replacement for the Swing based desktop application. It's one such POC, and covers specific attributes
+	below. Only a small amount of links/functionality will be simulated.
+	<br><br>
+	<h3>Attributes</h3>
+	<ul>
+	  <li>A sample Angular Material UI components based layout, with some the common/popular widgets in that library</li>
+	    <ul>
+	      <li>This UI concept attempts to match some of the existing layout, without using MDI (Multiple Document Interface)</li>
+	      <li><b>Note</b>: Colors/fonts are just one example. These are obviously customizable and for graphics designer(s) to improve on.</li>
+	    </ul>
+	  <li>Simulated user login, with just one static user allowed. User: cfo, Password: admin</li>
+	  <li>Best practice Angular application components structure (LIFT best practices)</li>
+	    <ul>
+	      <li>See <a target="new" href="https://www.telerik.com/blogs/angular-basics-tips-structuring-angular-project">Basics tips for structuring an angular project</a></li>
+	    </ul>
+	  <li>Multi-stage Dockerfile, which builds same image for all environments</li>
+	      <ul>
+	      <li><b>Note</b>: An environment variable is passed to the container launch (ex: docker run, or AWS ECS) and respective properties file copied from "assets"" on load (ex: dev, qa, prod).</li>
+	    </ul>
+	</ul>
+</div>
+
+<div id="divPortal"
+    role="main"
+    class="cfoPortal"
+    *ngIf="isUserLoggedIn()"
+>
+  <h2>Admin Portal Home</h2>
+  Click a feature link on the left or use a navigation link at the top.
+  <br><br>
+</div>

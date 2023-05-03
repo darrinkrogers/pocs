@@ -1,0 +1,84 @@
+<div id="superHouseholdsSubNavDiv" align="right">
+  <a routerLink="/superhouseholds/create">Create Super Household </a>
+</div>
+
+<div class="content">
+	<h3><b>Super Households List</b></h3>
+	<br>
+	<div
+	    id="divSuperHouseholds"
+	    [hidden]="superHouseholds.length < 1"
+	>
+	    <mat-table
+	        matSort
+	        [dataSource]="superHouseholdsDataSource"
+	    >
+	        <!-- Display Name Column -->
+	        <ng-container matColumnDef="displayName">
+	            <th
+	                *matHeaderCellDef
+	                style="width: 200 px"
+	                mat-header-cell
+	                mat-sort-header
+	            >
+	                Name
+	            </th>
+	            <td
+	                *matCellDef="let superHousehold"
+	                mat-cell
+	            >
+	                {{ superHousehold.displayName }}
+	            </td>
+	        </ng-container>
+	
+	        <!-- Id Column -->
+	        <ng-container matColumnDef="id">
+	            <th
+	                *matHeaderCellDef
+	                style="width: 80 px"
+	                mat-header-cell
+	                mat-sort-header
+	            >
+	                Id
+	            </th>
+	            <td
+	                *matCellDef="let superHousehold"
+	                mat-cell
+	            >
+	                {{ superHousehold.id }}
+	            </td>
+	        </ng-container>
+	
+	
+	        <!-- Edit Link Column -->
+	        <ng-container matColumnDef="editLink">
+	            <th
+	                *matHeaderCellDef
+	                style="width: 80 px"
+	                mat-header-cell
+	                mat-sort-header
+	            >
+	                &nbsp;
+	            </th>
+	            <td
+	                *matCellDef="let superHousehold"
+	                mat-cell
+	            >
+	                <a mat-list-item routerLink="/superhouseholds/edit?id={{ superHousehold.id }}">Edit</a>
+	            </td>
+	        </ng-container>
+	
+	        <tr
+	            *matHeaderRowDef="displayedColumns"
+	            mat-header-row
+	        ></tr>
+	        <tr
+	            *matRowDef="let row; columns: displayedColumns"
+	            mat-row
+	        ></tr>
+	    </mat-table>
+	</div>
+	<mat-divider style="width: 100%;"></mat-divider>
+	<br>
+	<br>
+</div>

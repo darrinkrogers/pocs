@@ -1,0 +1,20 @@
+<div class="content">
+<h3><b>Login</b></h3>
+<table>
+  <tr>
+    <td>User Id</td>
+    <td><input autofocus type="text" size="30" id="txtUserId" [(ngModel)]="userId"></td>  
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="text" size="30" id="txtPassword" [(ngModel)]="userPassword"></td>  
+  </tr> 
+  <tr *ngIf="loginErrMsg">
+    <td colspan="2" align="center"><br><span style="color: red">{{loginErrMsg}}</span></td> 
+  </tr>     
+</table>
+<br>
+<mat-divider style="width: 100%;"></mat-divider>
+<br>
+<button id="btnLogin" style="width: 200px" (click)="this.login()">Login</button>
+</div>
